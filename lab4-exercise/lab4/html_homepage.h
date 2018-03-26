@@ -23,11 +23,14 @@ table {
   <table>
   <tr>
     <td><b>Potentiometer</b>:</td><td class='disp-value'><label id='lbl_pot'></label></td>
-    <td><b>Button</b>:</td><td class='disp-value'><label id='lbl_but'></label><br></td>
-  </tr>  
+  </tr> 
   <tr>
-    <td><b>Selected color</b>:</td>
-  </tr>    
+    <td><b>Button</b>:</td><td class='disp-value'><label id='lbl_but'></label><br></td>
+  </tr>
+  <!-- Display the variable lbl_led from the ajax. --> 
+  <tr>
+    <td><b>Selected Color</b>:</td><td class='disp-value'><label id='lbl_led'></label><br></td>
+  </tr> 
   </table>
   <script>
     var nh=36,nl=25;
@@ -74,6 +77,9 @@ table {
       xhr.onreadystatechange=function() {
         if(xhr.readyState==4 && xhr.status==200) {
           var jd=JSON.parse(xhr.responseText);
+          /*
+           *  variables to display into HTML template
+           */
           id('lbl_pot').innerHTML=jd.potentiometer;
           id('lbl_but').innerHTML=(jd.button)?'pressed':'released';
           id('lbl_led').innerHTML=jd.led;

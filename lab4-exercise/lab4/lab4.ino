@@ -55,6 +55,9 @@ void on_status() {
   html += ",";
   html += b;
   html += ")\"}";
+  Serial.print(r);
+  Serial.print(g);
+  Serial.print(b);
 
   server.send(200, "text/html", html);
 } 
@@ -62,6 +65,7 @@ void on_status() {
 
 void setup() {
   server.handleClient();
+  Serial.begin(9600);
 
   pixel.begin();
   pixel.show();
