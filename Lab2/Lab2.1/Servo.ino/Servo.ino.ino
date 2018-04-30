@@ -18,6 +18,6 @@ void loop() {
   delay(2000);
   servo.write(65); // Midpoint
   delay(2000);
-  servo.write(130); // Max
-
+  servo.write(180); // Max
+  delay(2000);
 }
